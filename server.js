@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 let fetch;
 import('node-fetch').then(module => {

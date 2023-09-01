@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 const BASE_URL = "http://localhost:3000";
 
@@ -8,7 +9,7 @@ function fetchGeneralTips() {
         method: "GET",
         headers: {
             "X-RapidAPI-Host": "earthwise.p.rapidapi.com",
-            "X-RapidAPI-Key": "c5d6879daemsh5d95b0ac00dc5d2p1b154djsn83f5f05ded82"
+            "X-RapidAPI-Key": process.env.RAPIDAPI_KEY
         }
     })
     .then(response => response.json());
@@ -20,7 +21,8 @@ function fetchSpecificTip(newspaperAddress) {
         method: "GET",
         headers: {
             "X-RapidAPI-Host": "earthwise.p.rapidapi.com",
-            "X-RapidAPI-Key": "c5d6879daemsh5d95b0ac00dc5d2p1b154djsn83f5f05ded82"
+            "X-RapidAPI-Key": process.env.RAPIDAPI_KEY
+
         }
     })
     .then(response => response.json());

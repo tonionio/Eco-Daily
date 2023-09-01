@@ -45,7 +45,7 @@ window.onload = function() {
 //         method: "GET",
 //         headers: {
 //             "X-RapidAPI-Host": "earthwise.p.rapidapi.com",
-//             "X-RapidAPI-Key": "c5d6879daemsh5d95b0ac00dc5d2p1b154djsn83f5f05ded82"
+//             "X-RapidAPI-Key": ""
 //         }
 //     })
 //     .then(response => response.json())
