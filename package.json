@@ -1,0 +1,16 @@
+{
+  "name": "eco-daily",
+  "version": "1.0.0",
+  "description": "A daily dashboard for sustainability tips and products",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server"
+  },
+  "author": "Agostinho Montemor",
+  "license": "MIT",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}
