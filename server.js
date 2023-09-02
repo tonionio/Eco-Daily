@@ -1,52 +1,27 @@
+const express = require('express');
+const fetch = require('node-fetch');
 require('dotenv').config();
 
-const express = require('express');
-let fetch;
-import('node-fetch').then(module => {
-    fetch = module.default;
-});
 const app = express();
+const PORT = process.env.PORT || 3000;
+const API_ENDPOINT = 'https://earthwise.p.rapidapi.com/tips'; // This is the RapidAPI endpoint
 
 app.use(express.static(__dirname));
-
-const PORT = process.env.PORT || 3000;
-
-// Point directly to the Heroku API
-const API_ENDPOINT = 'https://earthwiseapi-9818faf2b109.herokuapp.com';
-
 app.use(express.json());
 
 // Proxy endpoint for fetching general tips
-app.get('/tips', async (req, res) => {
+app.get('/fetchGeneralTips', async (req, res) => {
     try {
-        const response = await fetch(`${API_ENDPOINT}/tips`);
-
-        if (!response.ok) {
-            throw new Error(`API responded with status: ${response.status}`);
-        }
-
+        const response = await fetch(API_ENDPOINT, {
+            headers: {
+                "X-RapidAPI-Host": "earthwise.p.rapidapi.com",
+                "X-RapidAPI-Key": process.env.RAPIDAPI_KEY
+            }
+        });
         const data = await response.json();
         res.json(data);
     } catch (error) {
         console.error("Error fetching tips:", error);
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// Proxy endpoint for fetching specific tip
-app.get('/tips/:newspaperAddress', async (req, res) => {
-    try {
-        const { newspaperAddress } = req.params;
-        const response = await fetch(`${API_ENDPOINT}/tips/${newspaperAddress}`);
-        
-        if (!response.ok) {
-            throw new Error(`API responded with status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        res.json(data);
-    } catch (error) {
-        console.error("Error fetching specific tip:", error);
         res.status(500).json({ error: error.message });
     }
 });
