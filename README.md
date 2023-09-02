@@ -15,6 +15,19 @@ Eco-Daily is a web platform dedicated to promoting sustainability. It provides u
 
 ## Installation
 
+API Key Configuration
+To run this application locally or in a production environment, you'll need to provide your own API key for the Earthwise API.
+
+Steps to Configure the API Key:
+Obtain the API Key: Visit Earthwise on RapidAPI to sign up and get your API key.
+
+Add the API Key to the Application:
+
+Locate the api.js file in the project.
+Find the line: const API_KEY = "YOUR_API_KEY_HERE";
+Replace "YOUR_API_KEY_HERE" with your actual API key from RapidAPI.
+Run the Application: After adding the API key, you can run the application as per the instructions provided in this README.
+
 1. Clone the repository:
 git clone https://github.com/tonionio/Eco-Daily.git
 
